@@ -1,0 +1,16 @@
+nav {
+    position: absolute;
+    background-color:#F6F6F6 ;
+    width: 20%;
+    height: 100%;
+    left: 0;
+}
+
+nav > * {
+    padding: 5% 15% ;
+}
+
+body{
+    margin: 0;
+}
+

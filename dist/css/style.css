@@ -1,0 +1,9 @@
+header {
+    position: sticky;
+    background-color:#F6F6F6 ;
+    width: 30%;
+}
+
+.logo{
+    color: pink;
+}

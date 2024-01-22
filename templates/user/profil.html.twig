@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block page_title %} Mon profil {% endblock %}
+{% block script %}<link rel="stylesheet" type="text/css" href="{{asset("css/style-profil.css")}}">{% endblock %}
+{% block page_content %} 
+    <div class="page_content">
+        <h1>Mon compte</h1>
+        <p>Tous les détails de votre compte sont disponibles ici.</p>
+        <div id="profil">
+            <img id="pp" src="{{asset("img/4.jpg")}}">
+            <div id="infos-profil">
+                <div> Photo de profil</div>
+                <h2> NAME </h2>
+                <div> La photo sera stockée dans les serveur de MyAvatar conformément au lois RGPD.</div>
+                <div id="edit"> Editer le profil</div>
+            </div>
+        </div>
+        <div id="email">
+            <div id="email-section"> Email </div>
+            <div id="email-user"> anais.prout@gmail.com</div>
+        </div>
+        <div id="deconnexion"> Se déconnecter</div>
+    </div>
+{% endblock %}
