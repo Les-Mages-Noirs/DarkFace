@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Inscription</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{asset("css/style.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("css/style-user.css")}}">
+</head>
+<body>
+<div id="inscription">
+    <div class="grey"> <img src=""> </div>
+    <div class="page-content left-50">
+        {{ form_start(formulaire) }}
+            <h1>S'inscrire</h1>
+            <p>Connectez vous avec vos identifiants myAvatar pour
+                acceder au site web.</p>
+            <div class="form-section input-avatar">
+                <p>Photo de profil</p>
+                {{ form_widget(formulaire.avatar, { 'attr' : {'accept' : 'image/png, image/jpeg'}}) }}
+            </div>
+            <div class="form-section input">
+                <p>Email</p>
+                {{ form_widget(formulaire.email, {'attr': {'placeholder': "Email"} }) }}
+            </div>
+            <div class="form-section flex-row">
+                <div class="input">
+                    <p>Prénom</p>
+                    {{ form_widget(formulaire.firstname, {'attr': {'placeholder': "Prénom"} }) }}
+                </div>
+                <div class="input">
+                    <p>Nom</p>
+                    {{ form_widget(formulaire.lastname, {'attr': {'placeholder': "Nom"} }) }}
+                </div>
+            </div>
+            <div class="form-section input ">
+                <p>Mot de passe</p>
+                {{ form_widget(formulaire.plainPassword, {'attr': {'placeholder': "Mot de passe"} }) }}
+            </div>
+            <div class="flex-row">
+                {{ form_widget(formulaire.inscription, {'label': "S'inscrire", 'attr': {'class': 'button'}}) }}
+                <a class="root" href="{{ path('connexion') }}"> Vous possedez déjà un compte? Connectez-vous</a>
+            </div>
+
+        {{ form_rest(formulaire) }}
+        {{ form_end(formulaire) }}
+    </div>
+</div>
+</body>
+</html>

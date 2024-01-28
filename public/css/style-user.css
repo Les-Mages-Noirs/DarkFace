@@ -1,0 +1,131 @@
+#menu > div {
+    margin-top: 15px;
+}
+
+.page-content{
+    position:absolute;
+    padding: 2% 5%;
+    width: 40%;
+}
+
+.left-20{
+    left: 20%;
+}
+.left-50{
+    left: 50%;
+}
+
+#profil, #email, #deconnexion {
+    margin-top: 5%;
+}
+
+#profil {
+    display: flex;
+}
+
+#pp{
+    height: 165px;
+    width: 165px;
+    border-radius: 10px;
+}
+
+#infos-profil {
+    color: grey;
+    padding: 0% 5%;
+    max-width: 350px;
+}
+
+h2{
+    color: black;
+    margin: 2%
+}
+
+#edit {
+    margin-top:6%;
+    border-radius: 5px;
+    background-color: #6D68FF;
+    color: white;
+    padding: 2% 5%;
+    max-width: fit-content;
+}
+
+#email{
+    display: flex;
+    border: #F6F6F6 solid;
+    width: auto;
+    border-radius: 10px;
+}
+
+#email-section{
+    background-color: #F6F6F6;
+    padding: 3% 3%;
+}
+
+#email-user{
+    padding: 3% 3%;
+}
+
+#deconnexion{
+    background-color: #FF6868;
+    color: white;
+    width: fit-content;
+    padding: 3% 5%;
+    border-radius: 10px;
+    border:solid #FF6868;
+}
+
+.grey {
+    background-color: #F6F6F6;
+    min-height: 100%;
+    height: auto;
+    width: 50%;
+    position: absolute;
+}
+
+#inscription, #connexion {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.connexion{
+    margin-top:5%;
+}
+
+.form-section{
+    margin-bottom: 5%;
+}
+
+.flex-row{
+    display: flex;
+    align-items: center ;
+}
+
+.flex-row> *{
+    margin-right: 5%;
+}
+
+.input >input, .input-connexion {
+    padding: 10px 22px;
+    border-radius: 10px;
+    border:1px solid rgba(0,0,0,0.2);
+}
+
+.button{
+    background-color: #6D68FF;
+    color: white;
+    border-radius: 10px;
+    border: solid #6D68FF;
+    padding:  2% 5%;
+}
+
+.root{
+    color: #6D68FF;
+    font-size:smaller;
+    text-decoration: underline;
+}
+
+
+.button:hover{
+    cursor: pointer;
+}

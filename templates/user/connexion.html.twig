@@ -1,0 +1,33 @@
+<html lang="fr">
+<head>
+    <title>Connexion</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{asset("css/style.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("css/style-user.css")}}">
+</head>
+<body>
+<div id="connexion">
+    <div class="grey"> <img src=""> </div>
+    <div class="page-content left-50 connexion">
+        <h1>Connectez-vous</h1>
+        <form action="{{ path('connexion') }}" method="post">
+                <div class="">
+                    <p for="login">Login</p>
+                    <input  class="form-section input-connexion" id="login" type="text" name="_username"  required/>
+                </div>
+                <div class="">
+                    <p for="password">Mot de passe</p>
+                    <input class="form-section input-connexion" id="password" type="password" name="_password" required/>
+                </div>
+                <div class="flex-row">
+                    <button type="submit" class="button">Se connecter</button>
+                    <a class="root" href="{{ path('inscription') }}">Vous ne possedez pas encore de compte? Inscrivez-vous</a>
+                </div>
+
+            <!-- A compléter : champ caché contenant le jeton CSRF -->
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        </form>
+    </div>
+</div>
+
+</body>

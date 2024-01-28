@@ -1,0 +1,10 @@
+<html>
+<head>
+    <meta name="viewport"content="width=device-width, minimum-scale=0.1">
+    <link rel="stylesheet" type="text/css" href="{{asset("css/style-avatar.css")}}">
+    <title>{{ user.avatarHash }}</title>
+</head>
+<body>
+    <img src="{{ asset("img/uploads/"~ user.avatarPath ~"")}}">
+</body>
+</html>
