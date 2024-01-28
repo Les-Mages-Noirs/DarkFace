@@ -27,13 +27,9 @@ class UserManager implements UserManagerInterface {
      */
     private function savepicture(User $user, ?UploadedFile $filePicture) : void {
         if($filePicture != null) {
-            //On configure le nom de l'image à sauvegarder
             $nameLink=md5($user->getEmail());
             $nameFile= $nameLink.'.'.$filePicture->guessExtension();
-            //$nameFile= uniqid() . '.' . $fichierPhotoProfil->guessExtension();
-            //On la déplace vers son dossier de destination
             $filePicture->move($this->folderPicture, $nameFile );
-            //On met à jour l'attribut "nomPhotoProfil" de l'utilisateur
             $user->setAvatarPath($nameFile);
             $user->setAvatarHash($nameLink);
         }
@@ -47,6 +43,11 @@ class UserManager implements UserManagerInterface {
         $this->encryptPassword($user,$plainPassword);
         //On sauvegarde (et on déplace) l'image de profil
         $this->savepicture($user, $filePicture);
+    }
+
+    public function deleteUser(User $user)
+    {
+        unlink("img/uploads/".$user->getAvatarPath());
     }
 
 }

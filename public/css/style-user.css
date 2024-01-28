@@ -15,8 +15,12 @@
     left: 50%;
 }
 
-#profil, #email, #deconnexion {
+#profil, #email {
     margin-top: 5%;
+}
+
+#deconnexion, #delete{
+    margin-top:20px;
 }
 
 #profil {
@@ -65,13 +69,25 @@ h2{
     padding: 3% 3%;
 }
 
+.bottom-button{
+    color: white;
+    width: max-content;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
 #deconnexion{
     background-color: #FF6868;
-    color: white;
-    width: fit-content;
-    padding: 3% 5%;
-    border-radius: 10px;
     border:solid #FF6868;
+}
+
+#delete{
+    background-color: black;
+    border:solid black;
+}
+
+#deconnexion:hover, #delete:hover,#edit:hover, #close:hover, .button:hover{
+    cursor: pointer;
 }
 
 .grey {
@@ -126,6 +142,26 @@ h2{
 }
 
 
-.button:hover{
-    cursor: pointer;
+#popup{
+    display: none;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    padding: 2%;
+    background-color: white;
+    border-radius: 10px;
+    border:solid 2px #6D68FF;
 }
+#popup> div{
+    padding: 5%;
+}
+
+#close{
+    float: right;
+    margin-right: 0px;
+}
+
+.margin-bottom{
+    margin-bottom: 2%;
+}
+

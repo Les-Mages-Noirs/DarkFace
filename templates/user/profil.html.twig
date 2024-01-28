@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block page_title %} Mon profil {% endblock %}
-{% block script %}<link rel="stylesheet" type="text/css" href="{{asset("css/style-user.css")}}">{% endblock %}
+{% block script %}
+    <link rel="stylesheet" type="text/css" href="{{asset("css/style-user.css")}}">
+    <script defer type="text/javascript" src="{{ asset("js/script-user.js") }}"></script>
+{% endblock %}
 {% block page_content %} 
     <div class="page-content left-20">
         <h1>Mon compte</h1>
@@ -18,8 +21,22 @@
             <div id="email-section"> Email </div>
             <div id="email-user"> {{ user.email }}</div>
         </div>
-        <form method="post" action="{{ path('deconnexion') }}">
-            <button id="deconnexion"> Se déconnecter</button>
-        </form>
+        <div class="flex-row" >
+            <form method="post" action="{{ path('deconnexion') }}">
+                <button id="deconnexion" class="bottom-button"> Se déconnecter</button>
+            </form>
+            <button id="delete" class="bottom-button" onclick="popUpDelete()"> Supprimer mon compte</button>
+        </div>
+        <div id="popup">
+            <img id="close" class="icon" src="{{ asset("img/close.png") }}" onclick="cancelDelete()">
+            <div>
+                <div class="margin-bottom">Souhaitez-vous vraiment supprimer votre compte? Toutes vos données seront effacées.</div>
+                <div class="flex-row" >
+                    <button onclick="deleteEvent()" class="button">Supprimer mon compte</button>
+                    <button onclick="cancelDelete()" class="button">Annuler</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}

@@ -29,7 +29,7 @@ class UserType extends AbstractType
                     new NotBlank(),
                     new NotNull(),
                     new Length(min:8, max:30, minMessage: 'Il faut au moins 8 caractères.', maxMessage: 'Il faut maximum 30 caractères.'),
-                    new Regex('#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$#', message:'Il faut que le mot de passe contienne au moins une minuscule, une majuscule et un chiffre.')
+                    new Regex('#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$#', message:'Le mot de passe doit contenir au moins une minuscule, une majuscule et un chiffre.')
                 ]
             ] )
             ->add('firstname', TextType::class)

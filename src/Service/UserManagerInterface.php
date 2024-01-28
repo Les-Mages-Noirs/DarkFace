@@ -7,5 +7,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 interface UserManagerInterface {
 
     public function proccessNewUser(User $user, ?string $plainPassword, ?UploadedFile $filePicture);
+
+    public function deleteUser(User $user);
 }
 ?>

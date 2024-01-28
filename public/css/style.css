@@ -14,3 +14,20 @@ body{
     margin: 0;
 }
 
+.errors{
+    background-color: #FF6868;
+    color: white;
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 2%;
+}
+
+#menu {
+    color: #6D68FF;
+}
+
+.icon{
+    width:20px ;
+    margin-right: 5%;
+}
+

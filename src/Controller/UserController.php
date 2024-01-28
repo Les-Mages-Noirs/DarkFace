@@ -47,7 +47,7 @@ class UserController extends AbstractController
 
         $newUser = new User();
         $form= $this->createForm(UserType::class, $newUser, ['method'=>'POST', 'action'=> $this->generateUrl("inscription")]);
-
+        $errorsMsg=[];
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $plainPassword = $form["plainPassword"]->getData();
@@ -59,19 +59,33 @@ class UserController extends AbstractController
 
             return $this->redirectToRoute("connexion");
         }else {
-           // $flashMessageHelper->addFormErrorsAsFlash($form);
+            $errors = $form->getErrors(true);
+            foreach ($errors as $error){
+                array_push($errorsMsg, $error->getMessage());
+            }
         }
 
         return $this->render('user/inscription.html.twig', [
             'controller_name' => 'UserController',
-            'formulaire'=> $form
+            'formulaire'=> $form,
+            'errors'=>$errorsMsg
         ]);
     }
 
     #[Route('/deconnexion', name: 'deconnexion', methods: ['POST'])]
-    public function routeDeconnexion(AuthenticationSubscriber $authenticationSubscriber): never
+    public function deconnexion(): never
     {
         //Ne sera jamais appelée
         throw new \Exception("Cette route n'est pas censée être appelée.");
+    }
+
+    #[Route('/delete', name: 'deleteAccount', options: ["expose" => true], methods: ["DELETE"])]
+    public function deleteAccount(EntityManagerInterface $entityManager, UserManagerInterface $userManager): Response
+    {
+        $user=$this->getUser();
+        $userManager->deleteUser($user);
+        $entityManager->remove($user);
+        $entityManager->flush();
+        return $this->redirectToRoute("connexion");
     }
 }

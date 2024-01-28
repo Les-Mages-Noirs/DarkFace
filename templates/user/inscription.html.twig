@@ -36,6 +36,11 @@
                 <p>Mot de passe</p>
                 {{ form_widget(formulaire.plainPassword, {'attr': {'placeholder': "Mot de passe"} }) }}
             </div>
+            <div class="errors">
+                {% for error in errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
             <div class="flex-row">
                 {{ form_widget(formulaire.inscription, {'label': "S'inscrire", 'attr': {'class': 'button'}}) }}
                 <a class="root" href="{{ path('connexion') }}"> Vous possedez déjà un compte? Connectez-vous</a>
