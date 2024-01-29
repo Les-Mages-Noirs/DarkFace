@@ -18,7 +18,7 @@ class AvatarController extends AbstractController
             return new BinaryFileResponse('img/uploads/default.png');
         }
 
-        $link = 'img/uploads/' . $user->getAvatarHash() . '.png';
+        $link = 'img/uploads/' . $user->getAvatarPath();
         return new BinaryFileResponse($link);
     }
 }
