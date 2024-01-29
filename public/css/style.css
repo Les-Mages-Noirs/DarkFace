@@ -31,3 +31,11 @@ body{
     margin-right: 5%;
 }
 
+#logo{
+    height: 130px;
+}
+
+div:has(#logo){
+    display: flex;
+    justify-content: center;
+}

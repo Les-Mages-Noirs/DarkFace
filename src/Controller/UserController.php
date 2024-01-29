@@ -42,6 +42,12 @@ class UserController extends AbstractController
         return $this->render('user/connexion.html.twig', [ 'controller_name' => 'UtilisateurController']);
     }
 
+    #[Route('/', name: 'default', methods: ['GET', 'POST'])]
+    public function default(): Response
+    {
+        return $this->redirectToRoute('profil');
+    }
+
     #[Route('/inscription', name: 'inscription', methods: ["GET", "POST"])]
     public function inscription(Request $request, UserManagerInterface $userManager, EntityManagerInterface $entityManager): Response
     {
