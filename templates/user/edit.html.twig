@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block page_title %} Editer mon profil {% endblock %}
+{% block script %}
+    <link rel="stylesheet" type="text/css" href="{{asset("css/style-user.css")}}">
+{% endblock %}
+{% block page_content %}
+    <div class="page-content left-20">
+    {{ form_start(formulaire) }}
+    <h1>Modifier mes informations</h1>
+    <div class="form-section input-avatar">
+        <p>Photo de profil</p>
+        {{ form_widget(formulaire.avatar, { 'attr' : {'accept' : 'image/png, image/jpeg'}}) }}
+    </div>
+    <div class="form-section input">
+        <p>Email</p>
+        {{ form_widget(formulaire.email, {'attr': {'value': user.getEmail()} }) }}
+    </div>
+    <div class="form-section flex-row">
+        <div class="input">
+            <p>Prénom</p>
+            {{ form_widget(formulaire.firstname, {'attr': {'value': user.getFirstName()} }) }}
+        </div>
+        <div class="input">
+            <p>Nom</p>
+            {{ form_widget(formulaire.lastname, {'attr': {'value': user.getLastName()} }) }}
+        </div>
+    </div>
+    <div class="form-section input ">
+        <p>Mot de passe</p>
+        {{ form_widget(formulaire.plainPassword, {'attr': {'placeholder': "Nouveau mot de passe"} }) }}
+    </div>
+    {% for error in errors %}
+        <div class="errors">{{ error }}</div>
+    {% endfor %}
+    <div class="flex-row">
+        <a class="button" href="{{ path('profil') }}">Annuler</a>
+        {{ form_widget(formulaire.inscription, {'label': "Enregistrer", 'attr': {'class': 'button'}}) }}
+    </div>
+    {{ form_rest(formulaire) }}
+    {{ form_end(formulaire) }}
+    </div>
+{% endblock %}

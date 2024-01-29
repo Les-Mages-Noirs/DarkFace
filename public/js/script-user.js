@@ -11,19 +11,9 @@ function deleteEvent(){
     let xhr = new XMLHttpRequest();
 
     xhr.open("DELETE", URL, true);
+    console.log("???");
     xhr.onload = function () {
         console.log("success onload")
-
-        //Fonction déclenchée quand on reçoit la réponse du serveur.
-        //xhr.status permet d'accèder au code de réponse HTTP (200, 204, 403, 404, etc...)
     };
-    //On exécute la requête
-    console.log(xhr.status);
-    //On précise null s'il n'y a pas de données supplémentaires (payload) à envoyer.
     xhr.send(null);
 }
-
-let buttons = document.getElementsByClassName("delete-feedy");
-Array.from(buttons).forEach(function (button) {
-    button.addEventListener("click", supprimerFeedy);
-});

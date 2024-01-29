@@ -45,9 +45,31 @@ class UserManager implements UserManagerInterface {
         $this->savepicture($user, $filePicture);
     }
 
-    public function deleteUser(User $user)
+    public function deletePicture(User $user)
     {
         unlink("img/uploads/".$user->getAvatarPath());
+    }
+
+    public function editPassword(User $user, string $plainPassword)
+    {
+        $this->encryptPassword($user,$plainPassword);
+    }
+
+    public function editAvatar(User $user, ?UploadedFile $filePicture)
+    {
+        $this->deletePicture($user);
+        $this->savepicture($user, $filePicture);
+    }
+
+    public function editMail(User $user, String $newMail)
+    {
+        $extension=explode(".", $user->getAvatarPath());
+        $nameLink=md5($newMail);
+        $nameFile=$nameLink.'.'.$extension[1];
+        rename("img/uploads/".$user->getAvatarPath(),"img/uploads/".$nameFile);
+        $user->setEmail($newMail);
+        $user->setAvatarPath($nameFile);
+        $user->setAvatarHash($nameLink);
     }
 
 }

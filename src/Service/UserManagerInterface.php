@@ -8,6 +8,12 @@ interface UserManagerInterface {
 
     public function proccessNewUser(User $user, ?string $plainPassword, ?UploadedFile $filePicture);
 
-    public function deleteUser(User $user);
+    public function deletePicture(User $user);
+
+    public function editPassword(User $user,String $plainPassword);
+
+    public function editAvatar(User $user, ?UploadedFile $filePicture);
+
+    public function editMail(User $user,String $newMail);
 }
 ?>

@@ -45,12 +45,14 @@ h2{
 }
 
 #edit {
-    margin-top:6%;
+    margin-top:10%;
     border-radius: 5px;
     background-color: #6D68FF;
     color: white;
     padding: 2% 5%;
     max-width: fit-content;
+    text-decoration: none;
+    display: flex;
 }
 
 #email{
@@ -133,6 +135,7 @@ h2{
     border-radius: 10px;
     border: solid #6D68FF;
     padding:  2% 5%;
+    text-decoration: none;
 }
 
 .root{

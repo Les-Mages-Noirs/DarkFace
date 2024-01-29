@@ -4,6 +4,8 @@
     <title>{% block page_title %}{% endblock %}</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{{asset("css/style.css")}}">
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     {% block script %} {% endblock %}
 </head>
 <body>

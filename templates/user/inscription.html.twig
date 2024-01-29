@@ -16,7 +16,7 @@
                 acceder au site web.</p>
             <div class="form-section input-avatar">
                 <p>Photo de profil</p>
-                {{ form_widget(formulaire.avatar, { 'attr' : {'accept' : 'image/png, image/jpeg'}}) }}
+                {{ form_widget(formulaire.avatar, { 'required' : 'true','attr' : {'accept' : 'image/png, image/jpeg'}}) }}
             </div>
             <div class="form-section input">
                 <p>Email</p>
@@ -34,13 +34,11 @@
             </div>
             <div class="form-section input ">
                 <p>Mot de passe</p>
-                {{ form_widget(formulaire.plainPassword, {'attr': {'placeholder': "Mot de passe"} }) }}
+                {{ form_widget(formulaire.plainPassword, {'required' : 'true','attr': {'placeholder': "Mot de passe"} }) }}
             </div>
-            <div class="errors">
-                {% for error in errors %}
-                {{ error }}
-                {% endfor %}
-            </div>
+            {% for error in errors %}
+                <div class="errors">{{ error }}</div>
+            {% endfor %}
             <div class="flex-row">
                 {{ form_widget(formulaire.inscription, {'label': "S'inscrire", 'attr': {'class': 'button'}}) }}
                 <a class="root" href="{{ path('connexion') }}"> Vous possedez déjà un compte? Connectez-vous</a>

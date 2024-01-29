@@ -22,12 +22,11 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class,)
             ->add('plainPassword', PasswordType::class,[
+                'required' => false,
                 "mapped" => false,
                 "constraints" => [
-                    new NotBlank(),
-                    new NotNull(),
                     new Length(min:8, max:30, minMessage: 'Il faut au moins 8 caractères.', maxMessage: 'Il faut maximum 30 caractères.'),
                     new Regex('#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$#', message:'Le mot de passe doit contenir au moins une minuscule, une majuscule et un chiffre.')
                 ]
@@ -35,6 +34,7 @@ class UserType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('avatar', FileType::class, [
+                'required' => false,
                 "mapped"=> false,
                 "constraints"=> [
                     new File(maxSize : '10M', extensions : ['jpg', 'png'], maxSizeMessage: "Le fichier dépasse les 10 MO. >_<", extensionsMessage: 'Seul les formats jpg et png sont autorisés')
