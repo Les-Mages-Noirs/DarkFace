@@ -14,6 +14,10 @@ class AvatarController extends AbstractController
     public function index(String $md5, UserRepository $repository) : Response
     {
         $user=$repository->findOneBy(["avatarHash"=>$md5]);
+        if(!$user){
+            return new BinaryFileResponse('img/uploads/default.png');
+        }
+
         $link = 'img/uploads/' . $user->getAvatarHash() . '.png';
         return new BinaryFileResponse($link);
     }
